@@ -1,0 +1,38 @@
+// Code your testbench here
+// or browse Examples
+module mux_tb;
+  reg [1:0]s;
+  reg [3:0]i;
+  wire y;
+  
+  mux_4_1 dut(.s(s),.i(i),.y(y));
+  
+  initial
+    begin
+      $dumpfile("dump.vcd");
+      $dumpvars(0,mux_tb);
+      
+      {i,s} =0;
+      
+      #1
+      
+      s = 2'b00;
+      i = 2'b01;
+      
+      #1
+      
+      s = 2'b00;
+      i = 2'b10;
+      
+      #1
+      
+      s = 2'b00;
+      i = 2'b11;
+      
+      $monitor("the output y is %d",y);
+          
+     
+      
+    end
+endmodule
+      
